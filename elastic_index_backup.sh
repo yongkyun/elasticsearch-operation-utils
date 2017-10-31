@@ -8,7 +8,7 @@
 ## REPOSITORY_NAME : repository name, but indexing and blackup cluster have same and shared repository like nfs or hdfs
 ## LOGFILE : backup log file name 
 ## DATA_FILE : temparary file for elastic search command data
-## BACKUP_ELASTIC_NUM_REPLICA : number of backup cluster
+## BACKUP_ELASTIC_NUM_REPLICA : replica number of backup cluster
 ## BEFOREDAY : make date part of index name. If you use argument of shell, this part will be ignored
 
 ########### Fix this part for your environment - start ##########
