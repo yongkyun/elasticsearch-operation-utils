@@ -12,7 +12,7 @@
 ## BEFOREDAY : make date part of index name. If you use argument of shell, this part will be ignored
 
 ########### Fix this part for your environment - start ##########
-PREFIX="sec_log_"
+PREFIX="log_"
 CUR_ELASTIC="10.10.10.10:9200"
 BACKUP_ELASTIC="10.10.10.11:9200"
 REPOSITORY_NAME="old_log"
