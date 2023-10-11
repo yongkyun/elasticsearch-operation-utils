@@ -79,7 +79,7 @@ echo "$DATE $INDEX_NAME's snapshot making is started" >> $LOGFILE
 
 while [ 1 ]
 do
-        STATE=`$URL_SEND_CMD -XGET http://$CUR_ELASTIC/_snapshot/$REPOSITORY_NAME/$INDEX_NAME?pretty | grep state | awk -F '"' '{print $4}'`
+        STATE=`$URL_SEND_CMD -XGET http://$CUR_ELASTIC/_snapshot/$REPOSITORY_NAME/$INDEX_NAME?pretty | grep "\"state\"" | awk -F '"' '{print $4}'`
         DATE=`date +"%Y%m%d_%H%M%S"`
         if [ "$STATE" == "SUCCESS" ]
         then
