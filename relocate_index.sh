@@ -15,9 +15,9 @@ fi
 
 INDEX_NAME="$PREFIX$BEFOREDAY"
 
-TOTAL_SHARD_COUNT=`$URL_SEND_CMD $ELASTIC_ADDR/_cat/shards | grep $INDEX_NAME  | wc | cut -c7-8`
-TOTAL_STARTED_SHARD_COUNT=`$URL_SEND_CMD $ELASTIC_ADDR/_cat/shards | grep $INDEX_NAME  | grep STARTED | wc | cut -c7-8`
-TOTAL_UNSIGNED_SHARD_COUNT=`$URL_SEND_CMD $ELASTIC_ADDR/_cat/shards | grep $INDEX_NAME  | grep UNASSIGNED | wc | cut -c7-8`
+TOTAL_SHARD_COUNT=`$URL_SEND_CMD $ELASTIC_ADDR/_cat/shards | grep $INDEX_NAME  | wc -l`
+TOTAL_STARTED_SHARD_COUNT=`$URL_SEND_CMD $ELASTIC_ADDR/_cat/shards | grep $INDEX_NAME  | grep STARTED | wc -l`
+TOTAL_UNSIGNED_SHARD_COUNT=`$URL_SEND_CMD $ELASTIC_ADDR/_cat/shards | grep $INDEX_NAME  | grep UNASSIGNED | wc -l`
 TOTAL_NODE_COUNT=`$URL_SEND_CMD $ELASTIC_ADDR/_cat/nodes?h=node.role | grep d | wc | awk '{print $1}'`
 SHARD_PER_NODE=$((TOTAL_SHARD_COUNT/TOTAL_NODE_COUNT))
 MAX_SHARD_NUMBER=`$URL_SEND_CMD $ELASTIC_ADDR/_cat/shards | grep $INDEX_NAME | awk '{print $2}' | sort | tail -n 1`
