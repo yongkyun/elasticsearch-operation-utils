@@ -22,7 +22,7 @@ do
     echo ""
     while [ 1 ]
     do
-        CNT=`$URL_SEND_CMD -s -XGET $ELASTIC_ADDR/_cat/shards/$INDEX_NAME | grep -v STARTED | wc | cut -c7-8`
+        CNT=`$URL_SEND_CMD -s -XGET $ELASTIC_ADDR/_cat/shards/$INDEX_NAME | grep -v STARTED | wc -l`
         DATE=`date +"%Y%m%d_%H%M%S"`
         echo "$DATE CNT : $CNT"
         if [ $CNT -eq 0 ]
